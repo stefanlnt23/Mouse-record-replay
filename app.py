@@ -11,6 +11,7 @@ def menu():
     print('OPTION 2 to | START|')
     print('OPTION 3 to | CLEAN|')
     print('OPTION 4 to |  QUIT|')
+
     option = int(input('OPTION|  : '))
     if option == 1:
         get_coordonates()
@@ -51,26 +52,28 @@ def get_coordonates():
 
 def start_action():
     try:
+        replay = int(input('HOW MANY TIMES TO REPEAT THE ACTION? : '))
+        for i in range(replay):
 
-        print('...STARTING PROCESS...')
-        print('IF YOU WANT TO QUIT PRESS S')
-        with open('coords.txt', 'r+') as f:
-            content = f.read()
-            coords = content.split('\n')
-            for coord in coords:
-                if coord == '':
-                    continue
-                x, y = coord.split(' ')
-                pyautogui.click(int(x), int(y))
-                if keyboard.is_pressed('s'):
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    return menu()
-                time.sleep(0.5)
-            f.write('')
-            f.close()
-            print('...PROCESS FINISHED...')
-            os.system('cls' if os.name == 'nt' else 'clear')
-            return menu()
+            print('...STARTING PROCESS...')
+            print('IF YOU WANT TO QUIT PRESS S')
+            with open('coords.txt', 'r+') as f:
+                content = f.read()
+                coords = content.split('\n')
+                for coord in coords:
+                    if coord == '':
+                        continue
+                    x, y = coord.split(' ')
+                    pyautogui.click(int(x), int(y))
+                    if keyboard.is_pressed('s'):
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                        return menu()
+                    time.sleep(0.5)
+                f.write('')
+                f.close()
+                os.system('cls' if os.name == 'nt' else 'clear')
+        print('...PROCESS FINISHED...')
+        return menu()
     except:
         return menu()
 
