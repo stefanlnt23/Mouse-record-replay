@@ -6,10 +6,10 @@
 
 
 
-##Issues that needs fixed till this point:
+#Issues that needs fixed till this point:
 
-##       #with open function needs simplified
+##      with open function needs simplified
       
-##       #Review Try/Except methods
+##      Review Try/Except methods
         
-##      #Overall clean
+##      Overall clean
